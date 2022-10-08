@@ -23,7 +23,7 @@ pipeline {
            steps {
                script {         
                  def customImage = docker.build('amir-projects/ekscluster', "./docker")
-                 docker.withRegistry('docker login', 'dockerhub') {
+                 docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
            }
